@@ -3,6 +3,8 @@ const ALLOWED_ORIGIN_ENV = "APP_ORIGIN";
 const WEBHOOK_TIMEOUT_MS = 10000;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
+const SUPPORT_MESSAGE =
+  "Estamos ajustando o envio do cadastro. Fale com nosso suporte para concluir.";
 const rateLimitStore = new Map();
 
 function json(res, status, payload) {
@@ -164,7 +166,7 @@ export default async function handler(req, res) {
   if (!webhookUrl) {
     console.error(`Variavel de ambiente obrigatoria ausente: ${REQUIRED_ENV}`);
     return json(res, 500, {
-      message: "Estamos ajustando o envio do cadastro. Fale com nosso suporte para concluir."
+      message: SUPPORT_MESSAGE
     });
   }
 
@@ -248,7 +250,7 @@ export default async function handler(req, res) {
       const detail = await webhookResponse.text().catch(() => "");
       console.error("Falha no webhook:", webhookResponse.status, detail);
       return json(res, 502, {
-        message: "O cadastro não pôde ser registrado agora. Tente novamente."
+        message: SUPPORT_MESSAGE
       });
     }
 
@@ -263,7 +265,7 @@ export default async function handler(req, res) {
       error
     );
     return json(res, 502, {
-      message: "O cadastro não pôde ser registrado agora. Tente novamente."
+      message: SUPPORT_MESSAGE
     });
   } finally {
     clearTimeout(timeout);
