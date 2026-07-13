@@ -9,6 +9,10 @@
     content="Cadastro empresarial para liberação do acesso à plataforma Jornada."
   />
   <title>Cadastro de acesso | Jornada</title>
+  <link
+    rel="icon"
+    href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230b1324"/><path d="M19 34c5-11 13-17 25-19-3 9-9 17-18 25 7-1 13-4 19-9-4 10-13 17-26 18 3-5 5-10 6-15-3 2-5 4-6 7z" fill="%2312a77d"/><path d="M35 18c-6 7-10 14-13 24" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>'
+  />
 
   <style>
     :root {
@@ -93,26 +97,28 @@
     .wordmark {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       color: var(--ink-950);
       text-decoration: none;
-      font-size: 1.15rem;
-      font-weight: 850;
-      letter-spacing: -0.035em;
     }
 
     .wordmark-symbol {
-      width: 34px;
-      height: 34px;
+      width: 42px;
+      height: 42px;
       display: grid;
       place-items: center;
       position: relative;
       color: #fff;
-      background: var(--ink-900);
-      border-radius: 11px;
-      font-size: 0.95rem;
-      font-weight: 900;
+      background:
+        radial-gradient(circle at 76% 20%, rgba(18, 167, 125, 0.34), transparent 28%),
+        var(--ink-900);
+      border-radius: 13px;
       box-shadow: 0 9px 24px rgba(9, 17, 31, 0.18);
+    }
+
+    .wordmark-symbol svg {
+      width: 28px;
+      height: 28px;
     }
 
     .wordmark-symbol::after {
@@ -125,6 +131,27 @@
       border: 2px solid #f1f4f8;
       border-radius: 50%;
       background: var(--brand);
+    }
+
+    .wordmark-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .wordmark-name {
+      font-size: 1.08rem;
+      font-weight: 880;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .wordmark-subtitle {
+      color: var(--ink-500);
+      font-size: 0.7rem;
+      font-weight: 760;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
     }
 
     .security-label {
@@ -162,6 +189,7 @@
       padding: 46px 38px 34px;
       color: #fff;
       background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 28px),
         linear-gradient(160deg, rgba(18, 167, 125, 0.18), transparent 42%),
         linear-gradient(180deg, var(--ink-850), var(--ink-950));
     }
@@ -194,6 +222,39 @@
     .aside-content {
       position: relative;
       z-index: 1;
+    }
+
+    .aside-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 30px;
+      color: #fff;
+      font-weight: 850;
+    }
+
+    .aside-brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.075);
+    }
+
+    .aside-brand-mark svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .aside-brand span:last-child {
+      display: block;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.72rem;
+      font-weight: 720;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .aside-kicker {
@@ -663,49 +724,93 @@
 
     .review {
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
     .review-item {
       display: grid;
-      grid-template-columns: 40px minmax(0, 1fr) auto;
-      gap: 14px;
+      grid-template-columns: 44px minmax(0, 1fr) auto;
+      gap: 16px;
       align-items: flex-start;
-      padding: 18px;
+      padding: 20px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
-      background: var(--surface-soft);
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(9, 17, 31, 0.045);
     }
 
     .review-icon {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
       color: var(--brand-dark);
       background: var(--brand-soft);
       border-radius: 11px;
-      font-weight: 900;
+    }
+
+    .review-icon svg {
+      width: 22px;
+      height: 22px;
     }
 
     .review-content strong {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 12px;
       color: var(--ink-800);
-      font-size: 0.78rem;
-      letter-spacing: 0.055em;
+      font-size: 0.96rem;
+      letter-spacing: 0;
+    }
+
+    .review-lines {
+      display: grid;
+      gap: 9px;
+    }
+
+    .review-line {
+      display: grid;
+      gap: 3px;
+    }
+
+    .review-line-label {
+      color: var(--ink-500);
+      font-size: 0.68rem;
+      font-weight: 780;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .review-content p {
-      margin: 0;
-      color: var(--ink-600);
-      font-size: 0.86rem;
-      line-height: 1.55;
+    .review-line-value {
+      color: var(--ink-700);
+      font-size: 0.88rem;
+      line-height: 1.45;
       word-break: break-word;
     }
 
+    .review-line.primary .review-line-value {
+      color: var(--ink-950);
+      font-size: 1rem;
+      font-weight: 790;
+    }
+
+    .review-line.critical {
+      width: fit-content;
+      max-width: 100%;
+      padding: 8px 10px;
+      border: 1px solid rgba(18, 167, 125, 0.18);
+      border-radius: 10px;
+      background: var(--brand-soft);
+    }
+
+    .review-line.critical .review-line-label {
+      color: var(--brand-dark);
+    }
+
     .edit-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: center;
       padding: 4px;
       color: var(--brand-dark);
       background: transparent;
@@ -713,6 +818,15 @@
       cursor: pointer;
       font-size: 0.77rem;
       font-weight: 820;
+    }
+
+    .edit-link:hover {
+      color: var(--ink-950);
+    }
+
+    .edit-link svg {
+      width: 14px;
+      height: 14px;
     }
 
     .consent-box {
@@ -776,8 +890,8 @@
       display: none;
       min-height: 670px;
       place-items: center;
-      padding: 45px;
-      text-align: center;
+      padding: 42px;
+      text-align: left;
     }
 
     .success.active {
@@ -786,7 +900,7 @@
     }
 
     .success-inner {
-      width: min(100%, 610px);
+      width: min(100%, 690px);
     }
 
     .success-mark {
@@ -808,30 +922,74 @@
 
     .success h2 {
       margin: 0;
+      text-align: center;
       font-size: clamp(1.8rem, 4vw, 2.55rem);
-      letter-spacing: -0.05em;
+      letter-spacing: 0;
     }
 
     .success p {
       margin: 14px auto 0;
       color: var(--ink-600);
       line-height: 1.7;
+      text-align: center;
     }
 
     .success-reference {
       margin: 25px auto 0;
-      padding: 16px;
+      padding: 20px;
       color: var(--ink-700);
       background: var(--brand-soft);
       border: 1px solid rgba(18, 167, 125, 0.18);
       border-radius: var(--radius-md);
       font-size: 0.86rem;
       line-height: 1.55;
+      text-align: center;
     }
 
     .success-reference code {
       color: var(--ink-900);
+      display: block;
+      margin-top: 5px;
+      font-size: 1.18rem;
       font-weight: 800;
+    }
+
+    .success-next {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .success-next article {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fff;
+    }
+
+    .success-next strong {
+      display: block;
+      color: var(--ink-850);
+      font-size: 0.86rem;
+      margin-bottom: 6px;
+    }
+
+    .success-next span {
+      color: var(--ink-600);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .success-contact {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: var(--surface-soft);
+      color: var(--ink-600);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      text-align: center;
     }
 
     .toast {
@@ -995,12 +1153,12 @@
       }
 
       .review-item {
-        grid-template-columns: 36px 1fr;
+        grid-template-columns: 38px 1fr;
       }
 
       .review-icon {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
       }
 
       .edit-link {
@@ -1012,6 +1170,10 @@
       .success {
         min-height: 590px;
         padding: 32px 20px;
+      }
+
+      .success-next {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1031,9 +1193,15 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <a class="wordmark" href="#" aria-label="Jornada — início">
-        <span class="wordmark-symbol">J</span>
-        <span>Jornada</span>
+      <a class="wordmark" href="#" aria-label="Jornada - inicio">
+        <span class="wordmark-symbol"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M19 34c5-11 13-17 25-19-3 9-9 17-18 25 7-1 13-4 19-9-4 10-13 17-26 18 3-5 5-10 6-15-3 2-5 4-6 7Z" fill="currentColor" opacity="0.95"/>
+            <path d="M35 18c-6 7-10 14-13 24" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+          </svg></span>
+        <span class="wordmark-copy">
+          <span class="wordmark-name">Jornada</span>
+          <span class="wordmark-subtitle">Cadastro seguro</span>
+        </span>
       </a>
 
       <div class="security-label">
@@ -1047,6 +1215,13 @@
     <main class="layout">
       <aside class="aside">
         <div class="aside-content">
+          <div class="aside-brand" aria-hidden="true">
+            <span class="aside-brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M19 34c5-11 13-17 25-19-3 9-9 17-18 25 7-1 13-4 19-9-4 10-13 17-26 18 3-5 5-10 6-15-3 2-5 4-6 7Z" fill="currentColor" opacity="0.95"/>
+            <path d="M35 18c-6 7-10 14-13 24" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+          </svg></span>
+            <span>Jornada<br /><span>Onboarding empresarial</span></span>
+          </div>
           <div class="aside-kicker">Acesso antecipado acompanhado</div>
 
           <h1 id="heroTitle">Vamos preparar sua empresa.</h1>
@@ -1475,12 +1650,12 @@
                     required
                   />
                   <label for="consentimento">
-                    Confirmo que sou responsável pela empresa e autorizo o
-                    tratamento destes dados para criação, configuração e suporte
-                    do acesso à Jornada, conforme os
-                    <a href="/termos-de-uso" target="_blank" rel="noopener">Termos de Uso</a>
+                    Confirmo que sou respons&aacute;vel pela empresa e autorizo o uso dos
+                    dados informados para valida&ccedil;&atilde;o cadastral, cria&ccedil;&atilde;o do ambiente,
+                    configura&ccedil;&atilde;o do acesso e suporte inicial da Jornada, conforme os
+                    <a href="/termos-de-uso.html" target="_blank" rel="noopener">Termos de Uso</a>
                     e a
-                    <a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.
+                    <a href="/politica-de-privacidade.html" target="_blank" rel="noopener">Pol&iacute;tica de Privacidade</a>.
                   </label>
                 </div>
                 <p class="helper" data-error-for="consentimento"></p>
@@ -1504,7 +1679,7 @@
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M7 10V7a5 5 0 0 1 10 0v3M6 10h12v10H6V10Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  Os dados não são armazenados neste navegador após o envio.
+                  Ambiente seguro. N&atilde;o pedimos senha, dados banc&aacute;rios nem acesso a contas pessoais.
                 </div>
               </section>
             </div>
@@ -1521,13 +1696,32 @@
 
             <h2>Cadastro recebido com sucesso.</h2>
             <p>
-              Agora vamos preparar o ambiente da sua empresa. As orientações de
-              acesso serão enviadas para o WhatsApp e o e-mail informados.
+              Recebemos seus dados e vamos preparar o ambiente da sua empresa.
+              As pr&oacute;ximas orienta&ccedil;&otilde;es ser&atilde;o enviadas para o WhatsApp e o e-mail informados.
             </p>
 
             <div class="success-reference">
-              Protocolo do cadastro:<br />
-              <code id="protocolCode">—</code>
+              Protocolo do cadastro
+              <code id="protocolCode">&mdash;</code>
+            </div>
+
+            <div class="success-next" aria-label="O que acontece agora">
+              <article>
+                <strong>1. Valida&ccedil;&atilde;o dos dados</strong>
+                <span>Conferimos CNPJ, respons&aacute;vel e canais de contato informados.</span>
+              </article>
+              <article>
+                <strong>2. Configura&ccedil;&atilde;o do acesso</strong>
+                <span>Preparamos o ambiente da Jornada com as informa&ccedil;&otilde;es enviadas.</span>
+              </article>
+              <article>
+                <strong>3. Retorno acompanhado</strong>
+                <span>Voc&ecirc; recebe a orienta&ccedil;&atilde;o de entrada em at&eacute; 1 dia &uacute;til.</span>
+              </article>
+            </div>
+
+            <div class="success-contact">
+              Para concluir com suporte, fale pelos canais oficiais da Jornada e informe o protocolo acima.
             </div>
           </div>
         </section>
@@ -1949,40 +2143,46 @@
 
     function renderReview() {
       const data = dataObject();
+      const icons = {
+        empresa: `<svg viewBox="0 0 24 24" fill="none"><path d="M4 20V7l8-4 8 4v13M8 20v-8h8v8M9 8h.01M12 7h.01M15 8h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        endereco: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.8"/></svg>`,
+        pessoa: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 20a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        edit: `<svg viewBox="0 0 24 24" fill="none"><path d="m4 20 4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+      };
 
       const groups = [
         {
           step: 1,
-          icon: "E",
-          title: "Empresa",
+          icon: icons.empresa,
+          title: "Dados da empresa",
           lines: [
-            data.razaoSocial,
-            data.nomeFantasia,
-            `CNPJ ${data.cnpj}`,
-            data.naturezaJuridica,
-            `Constituição: ${formatDate(data.dataConstituicao)}`
+            { label: "Raz\u00e3o social", value: data.razaoSocial, tone: "primary" },
+            { label: "Nome fantasia", value: data.nomeFantasia },
+            { label: "CNPJ", value: data.cnpj, tone: "critical" },
+            { label: "Natureza jur\u00eddica", value: data.naturezaJuridica },
+            { label: "Data de constitui\u00e7\u00e3o", value: formatDate(data.dataConstituicao) }
           ]
         },
         {
           step: 2,
-          icon: "A",
-          title: "Endereço",
+          icon: icons.endereco,
+          title: "Endere\u00e7o da empresa",
           lines: [
-            `${data.logradouro}, ${data.numero}`,
-            data.complemento,
-            `${data.bairro} — ${data.cidade}/${data.uf}`,
-            `CEP ${data.cep}`
+            { label: "Endere\u00e7o", value: `${data.logradouro}, ${data.numero}`, tone: "primary" },
+            { label: "Complemento", value: data.complemento || "N\u00e3o informado" },
+            { label: "Bairro e cidade", value: `${data.bairro} - ${data.cidade}/${data.uf}` },
+            { label: "CEP", value: data.cep }
           ]
         },
         {
           step: 3,
-          icon: "P",
-          title: "Proprietária e administradora",
+          icon: icons.pessoa,
+          title: "Respons\u00e1vel pelo acesso",
           lines: [
-            data.nomeResponsavel,
-            `CPF ${data.cpf}`,
-            data.whatsapp,
-            data.email
+            { label: "Nome completo", value: data.nomeResponsavel, tone: "primary" },
+            { label: "CPF", value: data.cpf, tone: "critical" },
+            { label: "WhatsApp", value: data.whatsapp, tone: "critical" },
+            { label: "E-mail", value: data.email, tone: "critical" }
           ]
         }
       ];
@@ -1992,10 +2192,17 @@
           <div class="review-icon" aria-hidden="true">${group.icon}</div>
           <div class="review-content">
             <strong>${escapeHtml(group.title)}</strong>
-            <p>${group.lines.filter(Boolean).map(escapeHtml).join("<br>")}</p>
+            <div class="review-lines">
+              ${group.lines.filter((line) => line.value).map((line) => `
+                <div class="review-line ${line.tone || ""}">
+                  <span class="review-line-label">${escapeHtml(line.label)}</span>
+                  <span class="review-line-value">${escapeHtml(line.value)}</span>
+                </div>
+              `).join("")}
+            </div>
           </div>
           <button class="edit-link" type="button" data-edit-step="${group.step}">
-            Editar
+            ${icons.edit} Editar
           </button>
         </article>
       `).join("");

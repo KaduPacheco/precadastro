@@ -164,7 +164,7 @@ export default async function handler(req, res) {
   if (!webhookUrl) {
     console.error(`Variavel de ambiente obrigatoria ausente: ${REQUIRED_ENV}`);
     return json(res, 500, {
-      message: "O cadastro nao esta configurado para envio no momento."
+      message: "Estamos ajustando o envio do cadastro. Fale com nosso suporte para concluir."
     });
   }
 
