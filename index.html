@@ -103,10 +103,11 @@
       text-decoration: none;
     }
     .wordmark-logo {
-      width: clamp(172px, 20vw, 240px);
-      height: auto;
+      width: 48px;
+      height: 48px;
       display: block;
-      filter: drop-shadow(0 10px 26px rgba(9, 17, 31, 0.14));
+      object-fit: contain;
+      filter: drop-shadow(0 10px 22px rgba(9, 17, 31, 0.16));
     }
 
     .wordmark-copy {
@@ -1149,9 +1150,14 @@
       <a class="wordmark" href="#" aria-label="Jornada - inicio">
         <img
           class="wordmark-logo"
-          src="./assets/logo-jornada-formulario.png"
-          alt="Jornada"
+          src="./assets/favicon-jornada.png"
+          alt=""
+          aria-hidden="true"
         />
+        <span class="wordmark-copy">
+          <span class="wordmark-name">Jornada</span>
+          <span class="wordmark-subtitle">Organize o Controle de Ponto</span>
+        </span>
       </a>
 
       <div class="security-label">
