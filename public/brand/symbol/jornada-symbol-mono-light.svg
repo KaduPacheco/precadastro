@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
+  <title id="title">Jornada</title>
+
+  <g fill="none" stroke="#09111f" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M494 236H732V544C732 708 602 838 438 838C274 838 144 708 144 544C144 390 260 268 408 252" stroke-width="74"/>
+    <path d="M270 542H304" stroke-width="36"/>
+    <path d="M594 542H628" stroke-width="36"/>
+    <path d="M450 326V360" stroke-width="36"/>
+    <path d="M450 724V758" stroke-width="36"/>
+    <path d="M334 516L425 606L594 414" stroke-width="72"/>
+  </g>
+</svg>

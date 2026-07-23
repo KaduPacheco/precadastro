@@ -1,3 +1,7 @@
 *.bak-codex
 
 .vercel
+.env*
+.chrome-*-profile/
+.edge-*-profile/
+visual-evidence/

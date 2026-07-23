@@ -1,19 +1,16 @@
-# Formulário Premium — Jornada
+# Formulário Jornada
 
-Pacote pronto para publicar na Vercel e enviar os cadastros para um webhook do n8n.
+Formulário web de pré-cadastro empresarial para liberação de acesso à plataforma Jornada.
 
-## O que está incluído
+## Recursos
 
-- Formulário responsivo em quatro etapas.
-- Consulta automática de CNPJ.
-- Consulta automática de CEP.
-- Validação real de CPF e CNPJ.
-- Máscaras de preenchimento.
-- Revisão dos dados antes do envio.
-- Personalização do nome pelo link.
-- Proteção simples contra bots por honeypot.
-- Endpoint serverless que protege a URL do webhook.
-- Protocolo de confirmação após o envio.
+- Fluxo responsivo em quatro etapas.
+- Consulta automática de CNPJ e CEP por endpoint serverless.
+- Validação de CPF, CNPJ, e-mail e campos obrigatórios.
+- Máscaras de preenchimento e revisão antes do envio.
+- Manifest e assets de marca para favicon, PWA e ícones.
+- Endpoint serverless para encaminhar o cadastro ao webhook configurado.
+- Proteções básicas com honeypot, validação de origem opcional e rate limit simples.
 
 ## Estrutura
 
@@ -21,92 +18,54 @@ Pacote pronto para publicar na Vercel e enviar os cadastros para um webhook do n
 index.html
 api/
   cadastro.js
+  lookup.js
+assets/
+public/
+  brand/
+  manifest.webmanifest
+tools/
+  generate-brand-assets.ps1
 package.json
 vercel.json
 ```
 
-## Publicação na Vercel
+## Variáveis de ambiente
 
-1. Coloque estes arquivos em um repositório GitHub.
-2. Importe o repositório na Vercel.
-3. Nas configurações do projeto, abra **Environment Variables**.
-4. Crie a variável:
+Crie as variáveis no ambiente de deploy:
 
 ```text
 CADASTRO_WEBHOOK_URL
+APP_ORIGIN
 ```
 
-5. Use como valor a URL de produção de um webhook do n8n.
-6. Marque os ambientes desejados, como Production e Preview.
-7. Faça um novo deploy.
+`CADASTRO_WEBHOOK_URL` é obrigatória e deve apontar para o webhook de produção.
+`APP_ORIGIN` é opcional; quando definida, limita a origem permitida para envio.
 
-## Fluxo básico no n8n
+Arquivos `.env` e `.env.local` ficam fora do Git.
 
-Crie um fluxo com:
+## Publicação na Vercel
 
-```text
-Webhook (POST)
-→ banco de dados, planilha ou e-mail
-→ Respond to Webhook
-```
+1. Suba este repositório para o GitHub.
+2. Importe o projeto na Vercel.
+3. Configure `CADASTRO_WEBHOOK_URL` em Environment Variables.
+4. Faça o deploy.
 
-O corpo recebido terá esta estrutura:
+## Link personalizado
 
-```json
-{
-  "protocolo": "JOR-20260713-ABC123",
-  "origem": "whatsapp",
-  "perfil": "PROPRIETARIA_ADMINISTRADORA",
-  "empresa": {},
-  "endereco": {},
-  "administradora": {},
-  "consentimento": true,
-  "metadata": {}
-}
-```
-
-## Link personalizado para a Saminha
-
-Depois do deploy, envie o link assim:
+Use parâmetros de URL para personalizar origem e nome:
 
 ```text
 https://seu-dominio.com/?nome=Saminha&origem=whatsapp
 ```
 
-O formulário exibirá:
+O formulário exibirá uma saudação com o primeiro nome informado.
 
-```text
-Saminha, vamos preparar sua empresa.
+## Desenvolvimento
+
+Para regenerar os assets de marca:
+
+```powershell
+.\tools\generate-brand-assets.ps1
 ```
 
-## Antes de publicar
-
-Troque os links abaixo no `index.html` pelos endereços reais:
-
-```text
-/termos-de-uso
-/politica-de-privacidade
-```
-
-Também é possível substituir o wordmark textual pela logo oficial da Jornada.
-
-
-## Webhook já conectado para testes
-
-Este pacote já está configurado com o endpoint informado:
-
-```text
-https://n8n.forteia.com.br/webhook-test/precadastro
-```
-
-Como esse é um webhook de teste do n8n, abra o nó **Webhook** e clique em
-**Listen for test event / Escutar evento de teste** antes de enviar o formulário.
-
-Para publicação definitiva, ative o workflow e cadastre na Vercel a variável:
-
-```text
-CADASTRO_WEBHOOK_URL
-```
-
-Use como valor a URL de produção exibida no próprio nó Webhook do n8n.
-A variável da Vercel terá prioridade sobre o endpoint de teste incluído no código.
+Antes de publicar, valide os links reais de termos de uso e política de privacidade no `index.html`.

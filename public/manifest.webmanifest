@@ -1,0 +1,24 @@
+{
+  "name": "Jornada",
+  "short_name": "Jornada",
+  "description": "Cadastro empresarial para liberacao do acesso a plataforma Jornada.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1324",
+  "theme_color": "#0b1324",
+  "icons": [
+    {
+      "src": "./brand/pwa/pwa-original-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./brand/pwa/pwa-original-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
